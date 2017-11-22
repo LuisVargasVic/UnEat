@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.fernandalopezcardenas.uneatfinal">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Client.MainClientActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Signup.LoginActivity" />
+        <activity android:name=".Client.PlateActivity" />
+        <activity android:name=".Client.RestaurantActivity" />
+        <activity android:name=".Signup.SignupActivity" />
+        <activity android:name=".Client.CarActivity" />
+        <activity android:name=".Client.ShowCarActivity" />
+        <activity android:name=".Client.PayActivity" />
+        <activity android:name=".Signup.DataActivity" />
+        <activity android:name=".Restaurant.MainRestaurantActivity" />
+        <activity android:name=".Restaurant.ShowOrderActivity" />
+        <activity android:name=".Restaurant.DeliverActivity" />
+
+        <service android:name=".Restaurant.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Restaurant.FirebaseIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".Client.MessageActivity" />
+        <activity android:name=".Client.PickUp" />
+        <activity
+            android:name=".Signup.HamburguerMenu"
+            android:label="@string/title_activity_hamburguer_menu"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Restaurant.CPlateActivity"></activity>
+    </application>
+
+</manifest>
