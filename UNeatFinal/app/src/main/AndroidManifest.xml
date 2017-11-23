@@ -9,22 +9,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainClientActivity">
+        <activity android:name=".Client.MainClientActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".PlateActivity" />
-        <activity android:name=".RestaurantActivity" />
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".CarActivity" />
-        <activity android:name=".ShowCarActivity" />
-        <activity android:name=".PayActivity" />
-        <activity android:name=".DataActivity" />
-        <activity android:name=".MainRestaurantActivity"></activity>
+        <activity android:name=".Signup.LoginActivity" />
+        <activity android:name=".Client.PlateActivity" />
+        <activity android:name=".Client.RestaurantActivity" />
+        <activity android:name=".Signup.SignupActivity" />
+        <activity android:name=".Client.CarActivity" />
+        <activity android:name=".Client.ShowCarActivity" />
+        <activity android:name=".Client.PayActivity" />
+        <activity android:name=".Signup.DataActivity" />
+        <activity android:name=".Restaurant.MainRestaurantActivity" />
+        <activity android:name=".Restaurant.ShowOrderActivity" />
+        <activity android:name=".Restaurant.DeliverActivity" />
+
+        <service android:name=".Restaurant.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".Restaurant.FirebaseIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".Client.MessageActivity"></activity>
     </application>
 
 </manifest>

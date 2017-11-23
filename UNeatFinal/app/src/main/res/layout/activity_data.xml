@@ -8,15 +8,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.fernandalopezcardenas.uneatfinal.DataActivity">
+    tools:context="com.example.fernandalopezcardenas.uneatfinal.Signup.DataActivity">
     <EditText
         android:id="@+id/nameUser"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
         android:textColor="@android:color/holo_blue_dark"
-        android:textColorHighlight="@android:color/primary_text_dark"
-        android:layout_centerVertical="true"/>
+        android:textColorHighlight="@android:color/primary_text_dark" />
 
     <Spinner
         android:id="@+id/rolUser"
@@ -32,6 +32,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/rolUser"
-        android:text="Add to Cart" />
+        android:text="User Data" />
 
 </RelativeLayout>

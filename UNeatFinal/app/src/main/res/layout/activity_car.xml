@@ -8,47 +8,42 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.fernandalopezcardenas.uneatfinal.CarActivity">
+    tools:context="com.example.fernandalopezcardenas.uneatfinal.Client.CarActivity">
+
     <TextView
         android:id="@+id/name"
+        android:textSize="20dp"
+        android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Name"
         android:textColor="@android:color/holo_blue_dark"
-        android:textColorHighlight="@android:color/primary_text_dark"
-        android:layout_centerVertical="true"/>
-    <TextView
-        android:id="@+id/WriteName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="@android:color/holo_blue_dark"
-        android:textColorHighlight="@android:color/primary_text_dark"
-        android:layout_centerVertical="true"
-        android:layout_below="@id/name"/>
+        android:textColorHighlight="@android:color/primary_text_dark"/>
+
     <TextView
         android:id="@+id/price"
+        android:textSize="20dp"
+        android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Price"
         android:textColor="@android:color/holo_blue_dark"
         android:textColorHighlight="@android:color/primary_text_dark"
         android:layout_centerVertical="true"
-        android:layout_below="@id/WriteName"/>
-    <TextView
-        android:id="@+id/WritePrice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="@android:color/holo_blue_dark"
-        android:textColorHighlight="@android:color/primary_text_dark"
-        android:layout_centerVertical="true"
-        android:layout_below="@id/price"/>
+        android:layout_below="@id/name"/>
 
     <Button
         android:id="@+id/buttonAC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/WritePrice"
+        android:layout_alignParentBottom="true"
         android:text="Add to Cart" />
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/price"
+        android:layout_above="@id/buttonAC"/>
+
 </RelativeLayout>
