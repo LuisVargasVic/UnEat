@@ -38,6 +38,13 @@
             android:paddingLeft="25dp"
             app:srcCompat="@drawable/logo" />
 
+        <ListView
+            android:id="@+id/listPay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/price"
+            android:layout_above="@id/buttonAC"/>
+
         <Button
             android:id="@+id/pay"
             android:layout_width="match_parent"

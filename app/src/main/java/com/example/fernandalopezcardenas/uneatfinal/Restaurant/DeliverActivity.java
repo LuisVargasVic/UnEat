@@ -5,7 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fernandalopezcardenas.uneatfinal.Restaurant.MainRestaurantActivity;
@@ -24,10 +28,22 @@ import java.util.List;
 public class DeliverActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef;
+    private DetailCart item;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deliver);
+
+        TextView name = findViewById(R.id.nameOrder);
+        TextView price = findViewById(R.id.priceOrder);
+        TextView hour = findViewById(R.id.hour);
+        ListView listView = findViewById(R.id.listOrder);
+        item = (DetailCart) getIntent().getSerializableExtra("place");
+        name.setText(item.getCart().getName());
+        price.setText(item.getCart().getPrice() + "");
+        hour.setText(item.getPickuptime());
+        ArrayAdapter adapter  = new ArrayAdapter(this, android.R.layout.simple_list_item_1, item.getCart().getIngredients());
+        listView.setAdapter(adapter);
 
         Button prep = (Button) findViewById(R.id.prep);
         prep.setOnClickListener(new View.OnClickListener() {
@@ -58,17 +74,15 @@ public class DeliverActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                final List<DetailCart> areas = new ArrayList<DetailCart>();
                 for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()) {
                     DetailCart value1 = areaSnapshot.getValue(DetailCart.class);
-                    areas.add(value1);
                     value1.setMessage("In Preparation");
                     String userIDC = value1.getUidclient();
                     String userIDO = value1.getUidrequest();
                     String userIDR = value1.getUidrestaurant();
                     myRef = database.getReference("");
-                    myRef.child("users").child("order").child(userIDR).child(userIDO).setValue(areas);
-                    myRef.child("users").child("paid").child(userIDC).child(userIDO).setValue(areas);
+                    myRef.child("users").child("order").child(userIDR).child(userIDO).setValue(value1);
+                    myRef.child("users").child("paid").child(userIDC).child(userIDO).setValue(value1);
                 }
             }
             @Override
@@ -82,17 +96,15 @@ public class DeliverActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                final List<DetailCart> areas = new ArrayList<DetailCart>();
                 for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()) {
                     DetailCart value1 = areaSnapshot.getValue(DetailCart.class);
-                    areas.add(value1);
                     value1.setMessage("Order ready we are waiting for you");
                     String userIDC = value1.getUidclient();
                     String userIDO = value1.getUidrequest();
                     String userIDR = value1.getUidrestaurant();
                     myRef = database.getReference("");
-                    myRef.child("users").child("order").child(userIDR).child(userIDO).setValue(areas);
-                    myRef.child("users").child("paid").child(userIDC).child(userIDO).setValue(areas);
+                    myRef.child("users").child("order").child(userIDR).child(userIDO).setValue(value1);
+                    myRef.child("users").child("paid").child(userIDC).child(userIDO).setValue(value1);
                 }
             }
             @Override

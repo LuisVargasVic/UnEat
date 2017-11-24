@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -30,10 +31,7 @@ public class TimePicker extends Activity {
     private String format = "";
     private Button btnProc;
     private ArrayList<String> adapter;
-
-    public TimePicker(){
-
-    }
+    private ArrayList<DetailCart> adapterAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,43 +45,20 @@ public class TimePicker extends Activity {
         int min = calendar.get(Calendar.MINUTE);
         showTime(hour, min);
         adapter = getIntent().getStringArrayListExtra("paid");
+        adapterAd = (ArrayList<DetailCart>) getIntent().getSerializableExtra("orders");
+        Log.wtf("checar", adapterAd.toString());
         Log.wtf("fasfas", getIntent().toString());
         btnProc.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(TimePicker.this, PayActivity.class);
                 intent.putExtra("order", adapter);
                 sendTime();
+                intent.putExtra("orders", adapterAd);
                 Toast.makeText(getApplicationContext(), "Time saved",Toast.LENGTH_SHORT);
                 startActivity(intent);
                 finish();
             }
         });
-    }
-
-
-    public TimePicker(android.widget.TimePicker timePicker1,Calendar calendar, String format) {
-        this.timePicker1 = timePicker1;
-        this.calendar = calendar;
-        this.format = format;
-    }
-
-    public void setTime(View view) {
-        showTime(currentHour(), currentMinute());
-    }
-
-    private int currentMinute() {
-        int min = timePicker1.getCurrentMinute();
-        return min;
-    }
-    private int currentHour() {
-        int hour = timePicker1.getCurrentHour();
-        return hour;
-    }
-    public int getCurrentMinute() {
-        return currentMinute();
-    }
-    public int getCurrentHour() {
-        return currentHour();
     }
 
     public void showTime(int hour, int min) {
@@ -105,7 +80,7 @@ public class TimePicker extends Activity {
 
     public void sendTime(){
         myRef = database.getReference("users").child("cart").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.wtf("TimeAct", "datasnapshot: " + dataSnapshot.toString());

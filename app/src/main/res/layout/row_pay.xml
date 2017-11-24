@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="@drawable/new_login_gradient">
+
+<android.support.design.widget.AppBarLayout
+    android:id="@+id/appbar"
+    android:layout_width="368dp"
+    android:layout_height="wrap_content"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    tools:layout_editor_absoluteY="0dp"
+    tools:layout_editor_absoluteX="8dp"
+    tools:ignore="MissingConstraints">
+
+</android.support.design.widget.AppBarLayout>
+
+<LinearLayout
+    android:layout_width="368dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    app:layout_constraintLeft_toLeftOf="parent"
+    tools:layout_editor_absoluteY="8dp"
+    tools:ignore="MissingConstraints">
+    <TextView
+        android:id="@+id/namePay"
+        android:textSize="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHighlight="@android:color/primary_text_dark"/>
+
+    <TextView
+        android:id="@+id/pricePay"
+        android:textSize="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHighlight="@android:color/primary_text_dark"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/nameOrder"/>
+
+    <TextView
+        android:id="@+id/hourPay"
+        android:textSize="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hour"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textColorHighlight="@android:color/primary_text_dark"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/priceOrder"/>
+
+    <ListView
+        android:id="@+id/listPay"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/hourPay"/>
+
+
+</LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

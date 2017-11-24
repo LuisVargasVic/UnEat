@@ -74,10 +74,6 @@ public class MainClientActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(getString(R.string.app_name));
         setSupportActionBar(toolbar);

@@ -38,6 +38,45 @@
             android:layout_height="206dp"
             android:paddingLeft="25dp"
             app:srcCompat="@drawable/logo" />
+        <TextView
+            android:id="@+id/nameOrder"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textColorHighlight="@android:color/primary_text_dark"/>
+
+        <TextView
+            android:id="@+id/priceOrder"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textColorHighlight="@android:color/primary_text_dark"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/nameOrder"/>
+
+        <TextView
+            android:id="@+id/hour"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hour"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textColorHighlight="@android:color/primary_text_dark"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/priceOrder"/>
+
+        <ListView
+            android:id="@+id/listOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/price"/>
 
         <Button
         android:id="@+id/prep"

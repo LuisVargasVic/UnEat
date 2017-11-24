@@ -45,6 +45,7 @@ public class ShowCarActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ShowCarActivity.this, TimePicker.class);
                 intent.putExtra("paid",areasAdapter.getOrdersChosen());
+                intent.putExtra("orders", areasAdapter.getOrders());
                 startActivity(intent);
                 finish();
             }
@@ -74,6 +75,8 @@ public class ShowCarActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long arg) {
                 Intent intent = new Intent(ShowCarActivity.this, PayActivity.class);
                 intent.putExtra("paid",areasAdapter.getOrdersChosen());
+
+                Log.wtf("null?",areasAdapter.getOrders().toString());
                 startActivity(intent);
             }
         });

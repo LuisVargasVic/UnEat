@@ -66,4 +66,8 @@ public class OrdersAdapter extends ArrayAdapter<DetailCart> {
         return UidrequestArray;
     }
 
+    public ArrayList<DetailCart> getOrders(){
+        return ordersChosen;
+    }
+
 }
