@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "253350289810",
+    "firebase_url": "https://uneat-a4b4c.firebaseio.com",
+    "project_id": "uneat-a4b4c",
+    "storage_bucket": "uneat-a4b4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253350289810:android:ec2fb42f887aa585",
+        "android_client_info": {
+          "package_name": "com.example.fernandalopezcardenas.uneatfinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253350289810-hl9frm8c45d26bcggbfrk6ad50u3oe1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZw5_aiZolxcoVRSZPbl4hB6MpdvgDhmA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
