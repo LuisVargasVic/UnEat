@@ -30,7 +30,7 @@
 
         <activity android:name=".Client.MessageActivity" />
         <activity android:name=".Client.PickUp" />
-        <activity android:name=".Restaurant.CPlateActivity" />
+        <activity android:name=".Restaurant.CreatePlateActivity" />
         <activity android:name=".Detail.TimePicker" />
         <activity android:name=".Client.ShowPaidActivity"></activity>
     </application>

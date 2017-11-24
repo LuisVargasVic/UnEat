@@ -16,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class CPlateActivity extends AppCompatActivity {
+public class CreatePlateActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef;
     public EditText namePlate, price, ingredients;
@@ -24,7 +24,7 @@ public class CPlateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cplate);
+        setContentView(R.layout.activity_create_plate);
 
         myRef = database.getReference("").child("users");
 
@@ -41,7 +41,7 @@ public class CPlateActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ArrayList<String> ingredientsList = new ArrayList<>(Arrays.asList(ingredients.getText().toString().split(",")));
                 writeNewPlate(namePlate.getText().toString(),Integer.parseInt(price.getText().toString()), userre, ingredientsList);
-                Intent Client= new Intent(CPlateActivity.this, MainRestaurantActivity.class);
+                Intent Client= new Intent(CreatePlateActivity.this, MainRestaurantActivity.class);
                 startActivity(Client);
                 finish();
             }

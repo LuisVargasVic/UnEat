@@ -34,7 +34,7 @@ public class MainRestaurantActivity extends AppCompatActivity {
         Button buttonCr = findViewById(R.id.buttonCreate);
         buttonCr.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent int1= new Intent(MainRestaurantActivity.this,CPlateActivity.class);
+                Intent int1= new Intent(MainRestaurantActivity.this,CreatePlateActivity.class);
                 startActivity(int1);
             }
         });
