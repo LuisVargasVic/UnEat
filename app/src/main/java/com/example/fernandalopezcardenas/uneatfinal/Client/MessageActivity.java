@@ -34,8 +34,6 @@ public class MessageActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot areaSnapshot : dataSnapshot.getChildren()) {
                     DetailCart detail = areaSnapshot.getValue(DetailCart.class);
-                    Log.wtf("uidRequest areaSnapshot", detail.getUidrequest().toString());
-                    Log.wtf("uidRequest Extra", item.getUidrequest());
                     if (detail.getUidrequest().equals(item.getUidrequest())){
                         String mess = detail.getMessage();
                         message.setText(mess);
