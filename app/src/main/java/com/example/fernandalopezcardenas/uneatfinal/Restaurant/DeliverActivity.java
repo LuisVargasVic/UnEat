@@ -71,22 +71,20 @@ public class DeliverActivity extends AppCompatActivity {
     }
     private void modNewOrderPrep(){
         myRef = database.getReference("users").child("order").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()) {
                     DetailCart value1 = areaSnapshot.getValue(DetailCart.class);
-                    value1.setMessage("In Preparation");
                     if(value1.getUidrequest().equals(item.getUidrequest())){
+                        value1.setMessage("In Preparation");
                         String userIDC = value1.getUidclient();
                         String userIDO = value1.getUidrequest();
                         String userIDR = value1.getUidrestaurant();
                         myRef = database.getReference("");
                         myRef.child("users").child("order").child(userIDR).child(userIDO).setValue(value1);
                         myRef.child("users").child("paid").child(userIDC).child(userIDO).setValue(value1);
-
                     }
-
                 }
             }
             @Override
@@ -97,22 +95,20 @@ public class DeliverActivity extends AppCompatActivity {
     }
     private void modNewOrderDeliver(){
         myRef = database.getReference("users").child("order").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()) {
                     DetailCart value1 = areaSnapshot.getValue(DetailCart.class);
-                    value1.setMessage("Order ready we are waiting for you");
                     if(value1.getUidrequest().equals(item.getUidrequest())){
+                        value1.setMessage("Order ready we are waiting for you");
                         String userIDC = value1.getUidclient();
                         String userIDO = value1.getUidrequest();
                         String userIDR = value1.getUidrestaurant();
                         myRef = database.getReference("");
                         myRef.child("users").child("order").child(userIDR).child(userIDO).setValue(value1);
                         myRef.child("users").child("paid").child(userIDC).child(userIDO).setValue(value1);
-
                     }
-
                 }
             }
             @Override
