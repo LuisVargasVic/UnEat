@@ -15,28 +15,28 @@ import com.example.fernandalopezcardenas.uneatfinal.Restaurant.MainRestaurantAct
 import java.util.ArrayList;
 
 /**
- * Created by gabotrugomez on 11/14/17.
+ * Created by fernandalopezcardenas on 24/11/17.
  */
 
-public class DrawerListAdapter extends BaseAdapter {
+public class DrawerListResAdapter extends BaseAdapter {
     Context mContext;
-    ArrayList<MainClientActivity.NavItem> mNavItems;
+    ArrayList<MainRestaurantActivity.NavItem> mNavResItems;
 
 
-    public DrawerListAdapter(Context context, ArrayList<MainClientActivity.NavItem> navItems) {
+    public DrawerListResAdapter(Context context, ArrayList<MainRestaurantActivity.NavItem> navResItems) {
         mContext = context;
-        mNavItems = navItems;
+        mNavResItems = navResItems;
     }
 
 
     @Override
     public int getCount() {
-        return mNavItems.size();
+        return mNavResItems.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mNavItems.get(position);
+        return mNavResItems.get(position);
     }
 
     @Override
@@ -60,12 +60,10 @@ public class DrawerListAdapter extends BaseAdapter {
         TextView subtitleView = (TextView) view.findViewById(R.id.subTitle);
         ImageView iconView = (ImageView) view.findViewById(R.id.icon);
 
-        titleView.setText( mNavItems.get(position).mTitle );
-        subtitleView.setText( mNavItems.get(position).mSubtitle );
-        iconView.setImageResource(mNavItems.get(position).mIcon);
+        titleView.setText( mNavResItems.get(position).mTitle );
+        subtitleView.setText( mNavResItems.get(position).mSubtitle );
+        iconView.setImageResource(mNavResItems.get(position).mIcon);
 
         return view;
     }
-
-
 }

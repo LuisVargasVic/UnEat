@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.app.Fragment;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -48,14 +49,17 @@ public class MainClientActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_client);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        }
+        Toolbar barLayout = findViewById(R.id.toolbar);
+        setSupportActionBar(barLayout);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mNavItems.add(new NavItem("Home", "Meetup destination", R.drawable.ic_home));
-        mNavItems.add(new NavItem("Orders", "Change your preferences", R.drawable.ic_restaurant));
-        mNavItems.add(new NavItem("About", "Get to know about us", R.drawable.ic_person));
+
+
+        mNavItems.add(new NavItem("Home", "Home Page for Client", R.drawable.ic_home));
+        mNavItems.add(new NavItem("Restaurants", "Choose restaurant", R.drawable.ic_restaurant));
+        mNavItems.add(new NavItem("Orders", "See your cart", R.drawable.ic_person));
+        mNavItems.add(new NavItem("Inbox","Check your restaurant messages",R.drawable.ic_inbox));
 
         // DrawerLayout
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
@@ -70,36 +74,31 @@ public class MainClientActivity extends AppCompatActivity {
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectItemFromDrawer(position);
+                //selectItemFromDrawer(position);
+                Log.wtf("MaincLIENTaCT", position + " - " + mNavItems.get(position).mTitle);
+                switch(position) {
+                    case 0:
+                        Intent intent = new Intent(MainClientActivity.this, MainClientActivity.class);
+                        startActivity(intent);
+
+                        break;
+                    case 1:
+                        Intent intent1 = new Intent(MainClientActivity.this, RestaurantActivity.class);
+                        startActivity(intent1);
+                        break;
+                    case 2:
+                        Intent intent2 = new Intent(MainClientActivity.this, ShowCarActivity.class);
+                        startActivity(intent2);
+                        break;
+                    case 3:
+                        Intent intent3 = new Intent(MainClientActivity.this , MessageActivity.class );
+                        startActivity(intent3);
+                        break;
+                }
             }
         });
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(getString(R.string.app_name));
-        setSupportActionBar(toolbar);
-        buttonR = (Button) findViewById(R.id.buttonR);
-        buttonR.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent int1= new Intent(MainClientActivity.this,RestaurantActivity.class);
-                startActivity(int1);
-            }
-        });
 
-        buttonC = (Button) findViewById(R.id.buttonC);
-        buttonC.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent int1= new Intent(MainClientActivity.this,ShowCarActivity.class);
-                startActivity(int1);
-            }
-        });
-
-        buttonM = (Button) findViewById(R.id.buttonM);
-        buttonM.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent int1= new Intent(MainClientActivity.this,ShowPaidActivity.class);
-                startActivity(int1);
-            }
-        });
         //get firebase auth instance
         auth = FirebaseAuth.getInstance();
 
@@ -169,6 +168,7 @@ public class MainClientActivity extends AppCompatActivity {
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
     }
+
 
 
     //sign out method

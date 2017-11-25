@@ -38,9 +38,9 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="206dp"
-            app:srcCompat="@drawable/logo"
             android:paddingLeft="25dp"
-            />
+            android:paddingTop="50dp"
+            app:srcCompat="@drawable/logo" />
 
 
         <TextView
@@ -50,24 +50,6 @@
             android:gravity="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
-        <Button
-            android:id="@+id/buttonR"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_login_background"
-            android:text="Restaurant" />
-        <Button
-            android:id="@+id/buttonC"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_login_background"
-            android:text="Show Cart" />
-        <Button
-            android:id="@+id/buttonM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_login_background"
-            android:text="Show Message" />
 
         <Button
             android:id="@+id/sign_out"
@@ -103,7 +85,7 @@
                 android:id="@+id/avatar"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/common_google_signin_btn_icon_dark"
+                android:src="@drawable/logo"
                 android:layout_marginTop="15dp" />
 
             <LinearLayout
@@ -118,20 +100,12 @@
                     android:id="@+id/userName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rishabh"
+                    android:text="UNeatClient"
                     android:textColor="#fff"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/desc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginTop="4dp"
-                    android:text="View Profile"
-                    android:textColor="#fff"
-                    android:textSize="12sp" />
+
             </LinearLayout>
         </RelativeLayout>
 
