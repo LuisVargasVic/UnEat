@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.example.fernandalopezcardenas.uneatfinal.Detail.DetailCart;
@@ -19,27 +20,32 @@ import com.google.firebase.database.ValueEventListener;
 public class MessageActivity extends AppCompatActivity {
     public TextView message;
     private DatabaseReference mDatabase;
+    private DetailCart item;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child("paid").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-
+        item = (DetailCart) getIntent().getSerializableExtra("place");
         message = findViewById(R.id.message);
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot areaSnapshot : dataSnapshot.getChildren()) {
                     DetailCart detail = areaSnapshot.getValue(DetailCart.class);
-                    String mess = detail.getMessage();
-                    message.setText(mess);
-                    NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-                    Notification notify=new Notification.Builder
-                            (getApplicationContext()).setContentTitle(mess).setContentText(mess).
-                            setContentTitle(mess).setSmallIcon(R.drawable.ic_person).build();
-                    notify.flags |= Notification.FLAG_AUTO_CANCEL;
-                    notif.notify(0, notify);
+                    Log.wtf("uidRequest areaSnapshot", detail.getUidrequest().toString());
+                    Log.wtf("uidRequest Extra", item.getUidrequest());
+                    if (detail.getUidrequest().equals(item.getUidrequest())){
+                        String mess = detail.getMessage();
+                        message.setText(mess);
+                        NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+                        Notification notify=new Notification.Builder
+                                (getApplicationContext()).setContentTitle(mess).setContentText(mess).
+                                setContentTitle(mess).setSmallIcon(R.drawable.ic_person).build();
+                        notify.flags |= Notification.FLAG_AUTO_CANCEL;
+                        notif.notify(0, notify);
+                    }
                 }
             }
             @Override

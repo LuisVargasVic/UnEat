@@ -31,6 +31,7 @@ public class ShowPaidActivity extends AppCompatActivity {
     final DatabaseReference myRef = database.getReference("users").child("paid").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
     private ListView listView;
     private ArrayAdapter<String> areasAdapter;
+    private ArrayList<DetailCart> areasAd = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,8 @@ public class ShowPaidActivity extends AppCompatActivity {
                 for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()) {
                     DetailCart value1 = areaSnapshot.getValue(DetailCart.class);
                     areas.add(value1.getCart().getName() + " " + value1.getPickuptime());
+                    areasAd.add(value1);
+
                 }
                 areasAdapter = new ArrayAdapter<>(ShowPaidActivity.this, android.R.layout.simple_expandable_list_item_1, areas);
                 listView.setAdapter(areasAdapter);
@@ -59,6 +62,7 @@ public class ShowPaidActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long arg) {
                 Intent intent = new Intent(ShowPaidActivity.this, MessageActivity.class);
                 intent.putExtra("place",areasAdapter.getItem(position));
+                intent.putExtra("place",areasAd.get(position));
                 startActivity(intent);
                 finish();
             }
