@@ -19,7 +19,7 @@ import java.util.Arrays;
 public class CreatePlateActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef;
-    public EditText namePlate, price, ingredients;
+    public EditText namePlate, price, ingredients, urlImagePlate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,7 @@ public class CreatePlateActivity extends AppCompatActivity {
         namePlate = findViewById(R.id.namePlate);
         price = findViewById(R.id.pricePlate);
         ingredients = findViewById(R.id.ingredients);
+        urlImagePlate = findViewById(R.id.imagePlate);
 
         final String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         final String userre = database.getReference("users").child("restaurant").child(userId).child("plates").push().getKey();
@@ -40,16 +41,16 @@ public class CreatePlateActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 ArrayList<String> ingredientsList = new ArrayList<>(Arrays.asList(ingredients.getText().toString().split(",")));
-                writeNewPlate(namePlate.getText().toString(),Integer.parseInt(price.getText().toString()), userre, ingredientsList);
+                writeNewPlate(namePlate.getText().toString(),Integer.parseInt(price.getText().toString()), userre, ingredientsList, urlImagePlate.getText().toString());
                 Intent Client= new Intent(CreatePlateActivity.this, MainRestaurantActivity.class);
                 startActivity(Client);
                 finish();
             }
         });
     }
-    private void writeNewPlate(String Name, int Price, String uidrequest, ArrayList<String> Ingredients) {
+    private void writeNewPlate(String Name, int Price, String uidrequest, ArrayList<String> Ingredients, String ImagePlate) {
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DetailPlate user = new DetailPlate(Name, Price, uidrequest, userId, Ingredients);
+        DetailPlate user = new DetailPlate(Name, Price, uidrequest, userId, Ingredients, ImagePlate);
         myRef = database.getReference("");
         myRef.child("users").child("restaurant").child(userId).child("plates").child(uidrequest).setValue(user);
     }

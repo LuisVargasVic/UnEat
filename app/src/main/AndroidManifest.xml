@@ -9,30 +9,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Client.MainClientActivity">
+        <activity android:name=".Client.MainClientActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Signup.LoginActivity" />
-        <activity android:name=".Client.PlateActivity" />
-        <activity android:name=".Client.RestaurantActivity" />
-        <activity android:name=".Signup.SignupActivity" />
-        <activity android:name=".Client.CarActivity" />
-        <activity android:name=".Client.ShowCarActivity" />
-        <activity android:name=".Client.PayActivity" />
-        <activity android:name=".Signup.DataActivity" />
-        <activity android:name=".Restaurant.MainRestaurantActivity" />
-        <activity android:name=".Restaurant.ShowOrderActivity" />
-        <activity android:name=".Restaurant.DeliverActivity" />
-
-        <activity android:name=".Client.MessageActivity" />
-        <activity android:name=".Client.PickUp" />
-        <activity android:name=".Restaurant.CreatePlateActivity" />
-        <activity android:name=".Detail.TimePicker" />
-        <activity android:name=".Client.ShowPaidActivity"></activity>
+        <activity android:name=".Signup.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Client.PlateActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Client.RestaurantActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Signup.SignupActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Client.CarActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Client.ShowCarActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Client.PayActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Signup.DataActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Restaurant.MainRestaurantActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Restaurant.ShowOrderActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Restaurant.DeliverActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Client.MessageActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Restaurant.CreatePlateActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Detail.TimePicker"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Client.ShowPaidActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

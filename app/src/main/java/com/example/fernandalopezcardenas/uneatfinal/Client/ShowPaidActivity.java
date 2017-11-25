@@ -43,7 +43,7 @@ public class ShowPaidActivity extends AppCompatActivity {
                 final List<String> areas = new ArrayList<>();
                 for (DataSnapshot areaSnapshot: dataSnapshot.getChildren()) {
                     DetailCart value1 = areaSnapshot.getValue(DetailCart.class);
-                    areas.add(value1.getUidrequest());
+                    areas.add(value1.getCart().getName() + " " + value1.getPickuptime());
                 }
                 areasAdapter = new ArrayAdapter<>(ShowPaidActivity.this, android.R.layout.simple_expandable_list_item_1, areas);
                 listView.setAdapter(areasAdapter);

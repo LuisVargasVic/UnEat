@@ -43,9 +43,11 @@ public class MainRestaurantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_restaurant);
 
-        Toolbar barLayout = findViewById(R.id.toolbarres);
-        setSupportActionBar(barLayout);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar barLayout1 = findViewById(R.id.toolbarres);
+        setSupportActionBar(barLayout1);
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         mNavResItems.add(new MainRestaurantActivity.NavItem("Home", "Home Page for Restaurant", R.drawable.ic_home));
         mNavResItems.add(new MainRestaurantActivity.NavItem("Plate", "Create Plate", R.drawable.ic_restaurant));
@@ -78,7 +80,7 @@ public class MainRestaurantActivity extends AppCompatActivity {
                         startActivity(intent1);
                         break;
                     case 2:
-                        Intent intent2 = new Intent(MainRestaurantActivity.this, ShowCarActivity.class);
+                        Intent intent2 = new Intent(MainRestaurantActivity.this, ShowOrderActivity.class);
                         startActivity(intent2);
                         break;
                 }

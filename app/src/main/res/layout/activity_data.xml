@@ -40,7 +40,7 @@
         android:textColor="@android:color/holo_blue_dark"
         android:textColorHighlight="@android:color/primary_text_dark" />
 
-    <Spinner
+        <Spinner
         android:id="@+id/rolUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,10 +49,19 @@
         android:layout_marginTop="13dp"
         android:entries="@array/array_name"/>
 
+        <EditText
+            android:id="@+id/nameImageR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Logo for Restaurant URL"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textColorHighlight="@android:color/primary_text_dark" />
     <Button
         android:id="@+id/buttonUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_below="@id/rolUser"
 
         android:background="@drawable/btn_background"

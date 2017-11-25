@@ -12,16 +12,29 @@ public class DetailRestaurant implements Serializable {
     private String name;
     private String uid;
     private String ImageRestaurant;
-
     private HashMap<String, DetailPlate> plates;
 
     public DetailRestaurant(){
-
+        this.plates = new HashMap<String, DetailPlate>();
     }
 
-    public DetailRestaurant(String name, String uid) {
+    public DetailRestaurant(String ImageRestaurant){
+        this();
+        this.ImageRestaurant = ImageRestaurant;
+    }
+
+    public DetailRestaurant(String name, String uid, String ImageRestaurant) {
+        this();
         this.name = name;
         this.uid = uid;
+        this.ImageRestaurant = ImageRestaurant;
+    }
+
+    public DetailRestaurant(String name, String uid, String ImageRestaurant, HashMap<String, DetailPlate> plates) {
+        this.name = name;
+        this.uid=uid;
+        this.ImageRestaurant = ImageRestaurant;
+        this.plates = plates;
     }
 
     public String getName() {
@@ -47,7 +60,12 @@ public class DetailRestaurant implements Serializable {
     }
     public HashMap<String, DetailPlate> getPlates(){ return plates; }
     public ArrayList<DetailPlate> getPlatesList() {
-        return new ArrayList<>(this.plates.values());
+        ArrayList<DetailPlate> plates = new ArrayList<DetailPlate>();
+        for (DetailPlate p : this.plates.values()){
+            plates.add(p);
+        }
+        return plates;
+
     }
     @Override
     public String toString() {

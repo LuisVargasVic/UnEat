@@ -37,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="206dp"
             android:paddingLeft="25dp"
+            android:paddingTop="50dp"
             app:srcCompat="@drawable/logo" />
 
         <TextView

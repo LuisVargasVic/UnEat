@@ -19,12 +19,13 @@ public class DetailPlate implements Serializable{
     public DetailPlate(){
 
     }
-    public DetailPlate(String name, int price, String uidrequest, String uidrestaurant, ArrayList<String> ingredients) {
+    public DetailPlate(String name, int price, String uidrequest, String uidrestaurant, ArrayList<String> ingredients, String ImagePlate) {
         Name = name;
         Price = price;
         this.uidrequest = uidrequest;
         this.uidrestaurant = uidrestaurant;
         Ingredients = ingredients;
+        this.ImagePlate = ImagePlate;
     }
 
     public String getName() {

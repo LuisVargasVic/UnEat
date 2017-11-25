@@ -52,9 +52,9 @@ public class MainClientActivity extends AppCompatActivity {
 
         Toolbar barLayout = findViewById(R.id.toolbar);
         setSupportActionBar(barLayout);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         mNavItems.add(new NavItem("Home", "Home Page for Client", R.drawable.ic_home));
         mNavItems.add(new NavItem("Restaurants", "Choose restaurant", R.drawable.ic_restaurant));
@@ -91,7 +91,7 @@ public class MainClientActivity extends AppCompatActivity {
                         startActivity(intent2);
                         break;
                     case 3:
-                        Intent intent3 = new Intent(MainClientActivity.this , MessageActivity.class );
+                        Intent intent3 = new Intent(MainClientActivity.this , ShowPaidActivity.class );
                         startActivity(intent3);
                         break;
                 }
